@@ -10,9 +10,8 @@ import Login from './components/login';
 const App = () => {
   return (
     <div>
-      <Navbar />
       <BrowserRouter>
-       <Navbar />
+      <Navbar />
           <Routes>
             <Route element={ <Home /> } path="home" />
             <Route element={ <Login /> } path="Login" />

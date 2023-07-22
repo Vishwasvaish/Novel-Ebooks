@@ -1,119 +1,96 @@
-/* Reset default browser styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Basic styling */
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  /* Header styling */
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .nav-links li {
-    display: inline;
-    margin-left: 15px;
-  }
-  
-  .nav-links a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  /* Hero section styling */
-  .hero {
-    background-image: url('hero-image.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 100px 0;
-    text-align: center;
-  }
-  
-  .hero-content h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  .cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #fff;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  /* Featured books section styling */
-  .featured-books {
-    padding: 50px 0;
-    text-align: center;
-  }
-  
-  .book-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .book {
-    max-width: 250px;
-    text-align: center;
-  }
-  
-  .book img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
-  .book h3 {
-    margin-top: 10px;
-    font-size: 18px;
-  }
-  
-  .read-more {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #333;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  /* Footer styling */
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
+*{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.main{
+  width: 100%;
+  height: 100vh;
+  background-color: #552307;
+  position: relative;
+  background-image: url('');
+  background-repeat: no-repeat;
+  background-size: 570px;
+  background-position: right bottom;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100;
+  box-sizing: border-box;
+  padding: 10px, 50px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, .05);
+  z-index: 1;
+}
+menu{
+  display: flex;
+}
+.menu li a{
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 12px;
+}
+.siteName{
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+}
+.Logo img{
+  width: 50px;
+}
+.menu li a:hover,.active{
+  background-color: #29292929;
+  font-weight: 700;
+  transition: all ease 0.4s;
+}
+.hero{
+  width: 650px;
+  position: absolute;
+  left: 10%;
+  top: 33%;
+  transition: translate(-10%,-33%);
+  line-height: 60px;
+}
+.hero p:nth-child(1),.hero .details{
+  color: #fff;
+  font-size: 20px;
+}
+.details{
+  line-height: 30px !important;
+}
+.hero h1{
+  font-size: 40px;
+  margin: 0;
+  letter-spacing: 3px;
+  color: #fff;
+}
+.hero span{
+  color: orangered;
+}
+.download{
+  width: 200px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orangered;
+  color: #fff;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+.download:hover{
+  background-color: #131313;
+  transition: all ease 0.4s;
+}

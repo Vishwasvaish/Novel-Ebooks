@@ -1,29 +1,29 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Home from "./components/Home";
-import Login from "./components/login";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Signup from "./components/Signup";
-import EventHandling from "./components/EventHandling";
-import StateMangement from "./components/StateMangement";
-import Todo from "./components/Todo";
-import { Toaster } from "react-hot-toast";
+import React from 'react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import AddEbook from './components/Book';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import Signup from './components/Signup';
+import Login from './components/login';
 
-function App() {
+const App = () => {
   return (
     <div>
-      <Toaster position="top-center" />
+      <Navbar />
       <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route element={ <Home /> } path="home" />
-          <Route element={ <Login /> } path="login" />
-          <Route element={ <Signup /> } path="signup" />
-        </Routes>
-      </BrowserRouter>
+       <Navbar />
+          <Routes>
+            <Route element={ <Home /> } path="home" />
+            <Route element={ <Login /> } path="Login" />
+            <Route element={ <Signup /> } path="Signup" />
+            <Route element={ <AddEbook /> } path="addebook" />
+            <Route element={ <Footer /> } path="Footer" />
+          </Routes>
+       </BrowserRouter>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -27,31 +27,25 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/login">
-                Login Page
+              <NavLink className="nav-link" to="/categories">
+                Categories
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/signup">
-                Signup
+              <NavLink className="nav-link" to="/authors">
+                Authors
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/event">
-                Event Handling
+              <NavLink className="nav-link" to="/about">
+                About
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/state">
-                State Management
+              <NavLink className="nav-link" to="/contact">
+               Contact
               </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/todo">
-                ToDo
-              </NavLink>
-            </li>
-           
+            </li> 
             <li className="nav-item">
               <a className="nav-link disabled">Disabled</a>
             </li>
@@ -70,7 +64,9 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
-};
 
-export default Navbar;
+  )
+}
+
+export default Navbar
+

@@ -4,6 +4,7 @@ const app = express(); // initialize express
 const port = 5000;
 
 const userRouter = require('./routers/userRouter');
+
 const cors = require('cors');
 
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // middleware
 app.use('/user', userRouter);
+
 
 // to accept request from client
 // routing

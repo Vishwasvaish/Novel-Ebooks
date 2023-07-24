@@ -93,7 +93,6 @@ const BrowseEbook = () => {
                   </div>
                 )
               }</div>
-              
             </div>
           </div>
         </div>

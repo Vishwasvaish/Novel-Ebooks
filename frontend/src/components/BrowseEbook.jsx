@@ -85,10 +85,9 @@ const BrowseEbook = () => {
                       <p>Author : {selEbook.author}</p>
                       <p>Publisher : {selEbook.publisher}</p>
                       <p>Credits : {selEbook.credits}</p>
-                      <p>Date : {selEbook.date}</p>
+                      <p>Date : {new Date(selEbook.date).toLocaleDateString()}</p>
                       <p>File : {selEbook.file}</p>
-
-                      <a href={"http://localhost:5000/" + selEbook.file} className="btn btn-success"> <i class="fas fa-download    "></i> Download in PDF</a>
+                      <a target="_blank" href={"http://localhost:5000/" + selEbook.file} className="btn btn-success"> <i class="fas fa-download    "></i> Download in PDF</a>
                     </div>  
                   </div>
                 )

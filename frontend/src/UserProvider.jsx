@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+    const currentUser = JSON.parse(sessionStorage.getItem("user"));
     const navigate = useNavigate();
     
     const [loggedin, setLoggedin] = useState(currentUser !== null);
 
     const logout = () => {
-        sessionStorage.removeItem("currentUser");
+        sessionStorage.removeItem("user");
         setLoggedin(false);
         navigate("/login");
     }

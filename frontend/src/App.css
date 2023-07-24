@@ -10,3 +10,9 @@
   font-size: 100px;
   font-weight: bold;
 }
+
+.browse-header{
+  background-image: linear-gradient(0deg, #000000ac, #000000bd), url('https://www.novelsuspects.com/wp-content/uploads/2021/02/Books-That-Showcase-The-Dark-Side-of-Relationships_NovelSuspects.png?fit=1200%2C600');
+  color: white;
+  padding: 100px;
+}

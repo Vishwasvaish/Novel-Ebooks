@@ -78,7 +78,7 @@ const BrowseEbook = () => {
                 selEbook && (
                   <div className="row">
                     <div className="col-md-4">
-                    <img src={"http://localhost:5000/" + selEbook.coverpage} alt="" />
+                    <img  className="img-fluid" src={"http://localhost:5000/" + selEbook.coverpage} alt="" />
                     </div>
                     <div className="col-md-8">
                       <h3>{selEbook.title}</h3>
@@ -98,7 +98,7 @@ const BrowseEbook = () => {
       </>
 
       <header className="browse-header">
-        <h1>Browse Ebooks</h1>
+        <h1 className="display-2 fw-bold">Browse Ebooks</h1>
       </header>
       <div className="container">
         <div className="row">{displayEbookData()}</div>

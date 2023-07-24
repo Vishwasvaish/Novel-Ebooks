@@ -1,84 +1,170 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
-const Book Schema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().required('Password is Required')
-});
-
-const Signup = () => {
-  
+const AddEbook = () => {
   const navigate = useNavigate();
 
-  const signupForm = useFormik({
+  const [selFile, setSelFile] = useState('');
+  const [selImage, setSelImage] = useState('');
+
+  const uploadFile = (e) => {
+    if(!e.target.files[0]) return;
+    const file = e.target.files[0];
+    setSelFile(file.name);
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch("http://localhost:5000/util/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+      }
+    });
+  };
+  
+  const uploadImage = (e) => {
+    if(!e.target.files[0]) return;
+    const file = e.target.files[0];
+    setSelImage(file.name);
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch("http://localhost:5000/util/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+      }
+    });
+  };
+
+  const ebookForm = useFormik({
     initialValues: {
-      name: "",
-      email: "",
-      password: "",
+      title: "",
+      coverpage: "",
+      author: "",
+      publisher: "",
+      credits: "",
+      date: "",
+      file: "",
+      createdAt: new Date(),
     },
 
     onSubmit: async (values) => {
+      values.file = selFile;
+      values.coverpage = selImage;
       console.log(values);
-      const res = await fetch('http://localhost:5000/user/add', {
-        method: 'POST',
+      const res = await fetch("http://localhost:5000/ebook/add", {
+        method: "POST",
         body: JSON.stringify(values),
-        headers: { 'Content-Type' : 'application/json' }
+        headers: { "Content-Type": "application/json" },
       });
 
       console.log(res.status);
 
-      if(res.status === 200){
+      if (res.status === 200) {
         Swal.fire({
-          icon : 'success',
-          title : 'Signup Success',
-          text : 'Login to Continue'
+          icon: "success",
+          title: "Success",
+          text: "Ebook Added Successfully",
         });
-        navigate('/login');
-      }else{
-        Swal.fire({
-          icon : 'error',
-          title : 'Error',
-          text : 'Something went wrong'
-        })
       }
-
-      // add code here to connect to backend
     },
-
-    validationSchema: signupSchema
   });
 
   return (
-    <div>
-      <div className="col-md-3 mx-auto">
-        <div className="card">
+    <div >
+      <div className="col-md-6 mx-auto d-flex align-items-center vh-100">
+        <div className="card w-100">
           <div className="card-body">
-            <h2 className="my-5 text-center">Signup Form</h2>
+            <h2 className="my-5 text-center">Upload Novel Ebooks</h2>
 
-            <form onSubmit={signupForm.handleSubmit}>
-              <label htmlFor="">Name</label>
-              <span style={{color: 'red', fontSize: 15, marginLeft: 10}}>{signupForm.touched.name && signupForm.errors.name}</span>
-              <input className="form-control mb-3" onChange={signupForm.handleChange} value={signupForm.values.name} name="name" />
-              
-              <label htmlFor="">Email</label>
-              <span style={{color: 'red', fontSize: 15, marginLeft: 10}}>{signupForm.touched.email && signupForm.errors.email}</span>
-              <input className="form-control mb-3" onChange={signupForm.handleChange} value={signupForm.values.email} name="email" />
+            <form onSubmit={ebookForm.handleSubmit}>
+              <label htmlFor="">Novel Title</label>
+              <span style={{ color: "red", fontSize: 15, marginLeft: 10 }}>
+                {ebookForm.touched.title && ebookForm.errors.title}
+              </span>
+              <input
+                className="form-control mb-3"
+                onChange={ebookForm.handleChange}
+                value={ebookForm.values.title}
+                name="title"
+              />
 
-              <label htmlFor="">Password</label>
-              <span style={{color: 'red', fontSize: 15, marginLeft: 10}}>{signupForm.touched.password && signupForm.errors.password}</span>
-              <input className="form-control mb-3" type="password" onChange={signupForm.handleChange} value={signupForm.values.password} name="password" />
+              <label htmlFor="">Cover Page</label>
+              <input
+                className="form-control mb-3"
+                type="file"
+                onChange={uploadImage}
+                
+              />
 
-              <button type="submit" className="btn btn-primary mt-4">Signup</button>
+              <label htmlFor="">Author</label>
+              <span style={{ color: "red", fontSize: 15, marginLeft: 10 }}>
+                {ebookForm.touched.author && ebookForm.errors.author}
+              </span>
+              <input
+                className="form-control mb-3"
+                onChange={ebookForm.handleChange}
+                value={ebookForm.values.author}
+                name="author"
+              />
+
+              <label htmlFor="">Publisher</label>
+              <span style={{ color: "red", fontSize: 15, marginLeft: 10 }}>
+                {ebookForm.touched.publisher && ebookForm.errors.publisher}
+              </span>
+              <input
+                className="form-control mb-3"
+                onChange={ebookForm.handleChange}
+                value={ebookForm.values.publisher}
+                name="publisher"
+              />
+
+              <label htmlFor="">Credits</label>
+              <span style={{ color: "red", fontSize: 15, marginLeft: 10 }}>
+                {ebookForm.touched.credits && ebookForm.errors.credits}
+              </span>
+              <input
+                className="form-control mb-3"
+                onChange={ebookForm.handleChange}
+                value={ebookForm.values.credits}
+                name="credits"
+              />
+
+              <label htmlFor="">Date</label>
+              <span style={{ color: "red", fontSize: 15, marginLeft: 10 }}>
+                {ebookForm.touched.date && ebookForm.errors.date}
+              </span>
+              <input
+                className="form-control mb-3"
+                type="date"
+                onChange={ebookForm.handleChange}
+                value={ebookForm.values.date}
+                name="date"
+              />
+
+              <label htmlFor="">Upload Ebook</label>
+              <input
+                className="form-control mb-3"
+                onChange={uploadFile}
+                type="file"
+              />
+
+
+              <button type="submit" className="btn btn-primary mt-4">
+                Add Ebook Data
+              </button>
             </form>
-
           </div>
-        </div>  
+        </div>
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default AddEbook;

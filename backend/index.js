@@ -4,6 +4,8 @@ const app = express(); // initialize express
 const port = 5000;
 
 const userRouter = require('./routers/userRouter');
+const ebookRouter = require('./routers/ebookRouter');
+const utilRouter = require('./routers/util');
 
 const cors = require('cors');
 
@@ -13,7 +15,10 @@ app.use(express.json());
 
 // middleware
 app.use('/user', userRouter);
+app.use('/ebook', ebookRouter);
+app.use('/util', utilRouter);
 
+app.use(express.static('./uploads'))
 
 // to accept request from client
 // routing

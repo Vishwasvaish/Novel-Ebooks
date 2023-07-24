@@ -5,9 +5,9 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Navbar
-        </a>
+        <NavLink className="navbar-brand fw-bold" to="/">
+          Novel Ebooks
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -42,8 +42,8 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/contact">
-               Contact
+              <NavLink className="nav-link" to="/browse">
+              Browse Ebooks
               </NavLink>
             </li> 
             <li className="nav-item">

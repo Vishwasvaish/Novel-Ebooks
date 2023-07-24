@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Signup from './components/Signup';
 import Login from './components/login';
 import BrowseEbook from './components/BrowseEbook';
+import './App.css';
 
 const App = () => {
   return (

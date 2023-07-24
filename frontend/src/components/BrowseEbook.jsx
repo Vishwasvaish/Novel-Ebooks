@@ -97,7 +97,7 @@ const BrowseEbook = () => {
         </div>
       </>
 
-      <header>
+      <header className="browse-header">
         <h1>Browse Ebooks</h1>
       </header>
       <div className="container">

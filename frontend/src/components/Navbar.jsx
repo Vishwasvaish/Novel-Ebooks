@@ -32,8 +32,8 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/authors">
-                Authors
+              <NavLink className="nav-link" to="/addebook">
+                Add New Ebook
               </NavLink>
             </li>
             <li className="nav-item">
